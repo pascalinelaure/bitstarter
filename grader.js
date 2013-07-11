@@ -36,6 +36,28 @@ var assertFileExists = function(infile) {
     return instr;
 };
 
+function getFileName(url) {
+//this gets the full url
+//var url = document.location.href;
+//this removes the anchor at the end, if there is one
+url = url.substring(0, (url.indexOf("#") == -1) ? url.length : url.indexOf("#"));
+//this removes the query after the file name, if there is one
+url = url.substring(0, (url.indexOf("?") == -1) ? url.length : url.indexOf("?"));
+//this removes everything before the last slash in the path
+url = url.substring(url.lastIndexOf("/") + 1, url.length);
+//return
+return url;
+}
+
+var url_to_file = function(url) {
+    var file_from_url = url.toString();
+    if(!fs.existsSync(file_from_url)) {
+        console.log("%s does not exist. Exiting.", file_from_url);
+        process.exit(1); // http://nodejs.org/api/process.html#process_process_exit_code
+    }
+    return file_from_url;
+};
+
 var cheerioHtmlFile = function(htmlfile) {
     return cheerio.load(fs.readFileSync(htmlfile));
 };
@@ -65,7 +87,8 @@ if(require.main == module) {
     program
         .option('-c, --checks <check_file>', 'Path to checks.json', clone(assertFileExists), CHECKSFILE_DEFAULT)
         .option('-f, --file <html_file>', 'Path to index.html', clone(assertFileExists), HTMLFILE_DEFAULT)
-        .parse(process.argv);
+        .option('-u, --url <url_to_file>', 'Path to file.html', clone(url_to_file), HTMLFILE_DEFAULT)
+		.parse(process.argv);
     var checkJson = checkHtmlFile(program.file, program.checks);
     var outJson = JSON.stringify(checkJson, null, 4);
     console.log(outJson);
