@@ -50,11 +50,11 @@ return url;
 }
 
 var url_to_file = function(url) {
-    var file_from_url = url.toString();
-    if(!fs.existsSync(file_from_url)) {
-        console.log("%s does not exist. Exiting.", file_from_url);
-        process.exit(1); // http://nodejs.org/api/process.html#process_process_exit_code
-    }
+    var file_from_url = url.toString(); //fs.writeFileSync(getFileName(url), url.toString());
+    //if(!fs.existsSync(file_from_url)) {
+    //    console.log("%s url_to_file problem : does not exist. Exiting.", file_from_url);
+    //    process.exit(1); // http://nodejs.org/api/process.html#process_process_exit_code
+    //}
     return file_from_url;
 };
 
