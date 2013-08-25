@@ -104,6 +104,21 @@
       margin: 0 auto;
      }
     </style>
+	
+	<script type="text/javascript">
+
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-XXXXX-X']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+
+	</script>
+
   </head>
   <body>
 
@@ -165,21 +180,21 @@
                 different in horizontal and vertical layouts, illustrating
                 media queries. -->
                 <div class="linediv-l">
-				  <h3>1000</h3> <p>Products</p>
+				  <h3>0</h3> <p>Number</p> <!--  1000 bakers/Products -->
                 <!-- <h3>4000</h3> <p>resources</p> -->
                 </div>
               </div>
 			  
               <div class="span4">
                 <div class="linediv-c">
-				  <h3>6000</h3> <p>of $10,000</p>	
+				  <h3>$0</h3> <p>Amount</p>	<!-- $6000 of $10,000 -->
                   <!-- <h3>3000</h3> <p>Sites</p>  -->
                 </div>
               </div>
 			  
               <div class="span4">
                 <div class="linediv-r">
-				<h3>10</h3> <p>days left</p>
+				<h3>01/09/2013</h3> <p>start date </p> <!-- days left</p> -->
                 <!-- <h3>1000</h3> <p>Users</p> -->
                 </div>
               </div>
@@ -198,7 +213,7 @@
           <div class="span6 offset3 order">
             <!-- Standard Bootstrap button. -->
             <!-- http://twitter.github.io/bootstrap/base-css.html#buttons -->
-            <button class="btn btn-success btn-large">Preorder</button>
+            <button class="btn btn-success btn-large">Donation</button> <!--Preorder -->
           </div>
 		  
          <div class="span8 offset2 social">
@@ -362,5 +377,17 @@
         </div>
       </div>
     </div>
+	
+	<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-43481213-1', 'ec2-54-213-154-26.us-west-2.compute.amazonaws.com');
+	ga('send', 'pageview');
+
+	</script>
+
   </body>
 </html>
